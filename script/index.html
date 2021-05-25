@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LastPass替换</title>
+</head>
+
+<body>
+  <div><button onClick='transferToNewFile()'>替换并输出</button></div>
+  <textarea id="result"></textarea>
+  <div id="sCount"></div>
+</body>
+<script src="./new.js"></script>
+<script src="./old.js"></script>
+<script>
+  let sCount = 0
+  function transferToNewFile() {
+    sCount = 0
+    for (const key in n) {
+      if (Object.hasOwnProperty.call(n, key)) {
+        o[key] && n[key] && (n[key] = o[key]) && sCount++
+      }
+    }
+    document.querySelector('#result').innerHTML = JSON.stringify(n, null, 3)
+    document.querySelector('#sCount').innerHTML = `新文件共有${Object.keys(n).length}个Key,旧文件共有${Object.keys(o).length}个Key,成功替换:${sCount}个Key`
+  }
+
+</script>
+
+</html>
+<style>
+  #result {
+    width: 100%;
+    height: 80vh;
+  }
+</style>
